@@ -689,32 +689,38 @@ textarea:focus {
         padding: 8px;
     }
 
-    .day-cell {
-        min-height: 50px;
-    }
-
-    /* On very small screens, maybe just show a dot or color bar? 
-       Let's stick to small text but prevent wrapping issues */
+    /* Show pills but make them tiny */
     .workout-mini-pill {
-        display: none;
-        /* Hide pills on very small screens to avoid clutter? Or maybe show just a dot. */
-    }
-
-    /* Alternative: Show a dot for workouts */
-    .day-content {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 2px;
-        justify-content: center;
-    }
-
-    .day-cell.has-workout::after {
-        content: '';
         display: block;
-        width: 6px;
-        height: 6px;
-        background-color: var(--accent-color);
-        border-radius: 50%;
-        margin: 2px auto 0;
+        font-size: 0.6rem;
+        padding: 1px 2px;
+        height: auto;
+        line-height: 1.1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 1px;
+    }
+
+    .day-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    /* Remove the dot logic */
+    .day-cell.has-workout::after {
+        display: none;
+    }
+
+    .day-cell {
+        padding: 2px;
+        min-height: 60px;
+        /* Slightly taller to fit text */
+    }
+
+    .day-number {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
     }
 }
