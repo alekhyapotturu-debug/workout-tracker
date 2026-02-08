@@ -229,7 +229,8 @@ function renderCalendar() {
         const dayContent = document.createElement('div');
         dayContent.classList.add('day-content');
 
-        if (workouts[dateKey]) {
+        if (workouts[dateKey] && workouts[dateKey].length > 0) {
+            dayCell.classList.add('has-workout'); // Add class for mobile styling
             workouts[dateKey].forEach(workout => {
                 const pill = document.createElement('div');
                 pill.classList.add('workout-mini-pill');
